@@ -1,0 +1,15 @@
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\bin\Debug\net6.0\BlackjackGame.exe
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\bin\Debug\net6.0\BlackjackGame.deps.json
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\bin\Debug\net6.0\BlackjackGame.runtimeconfig.json
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\bin\Debug\net6.0\BlackjackGame.dll
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\bin\Debug\net6.0\BlackjackGame.pdb
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.csproj.AssemblyReference.cache
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.AssemblyInfoInputs.cache
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.AssemblyInfo.cs
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.csproj.CoreCompileInputs.cache
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.dll
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\refint\BlackjackGame.dll
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.pdb
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\BlackjackGame.genruntimeconfig.cache
+C:\Users\andre\RiderProjects\Oppgaver\BlackjackGame\BlackjackGame\obj\Debug\net6.0\ref\BlackjackGame.dll
