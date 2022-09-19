@@ -1,24 +1,23 @@
-﻿namespace Blackjack;
+﻿
+namespace BlackjackGame;
 
-public class Player
+public static class Player
 {
-    const double initialMoney = 100.00;
+    private const double InitialMoney = 100.00;
 
-    internal static double playerMoney = initialMoney;
-    internal static string name = "Unnamed";
-    internal static int age = 0;
-    internal static string favoriteCard = "Ace of Spades";
-    static int totalGamesPlayed = 0;
+    internal static double PlayerMoney = InitialMoney;
+    internal static string? Name = "Unnamed";
+    internal static int Age;
+    internal const string FavoriteCard = "Ace of Spades";
 
-    public static int currentWinningStreak = 0;
-    public static int bestWinningStreak = 0;
+    public static int CurrentWinningStreak;
+    public static int BestWinningStreak;
 
     internal static void ResetPlayerStats()
     {
-        totalGamesPlayed = 0;
-        currentWinningStreak = 0;
-        bestWinningStreak = 0;
-        playerMoney = initialMoney;
+        CurrentWinningStreak = 0;
+        BestWinningStreak = 0;
+        PlayerMoney = InitialMoney;
 
         Console.WriteLine("Stats. reset");
         Console.WriteLine("Press any key to continue..");
@@ -29,16 +28,16 @@ public class Player
         if(!setDefaultValues)
         {
             Console.WriteLine("Please insert your name and press <Enter>:");
-            name = Console.ReadLine();
+            Name = Console.ReadLine();
 
             Console.WriteLine("Please insert your age and press <Enter>:");
-            age = int.Parse(Console.ReadLine());
+            Age = int.Parse(Console.ReadLine()!);
                 
         }
         else
         {
-            name = "Andreas";
-            age = 24;
+            Name = "Andreas";
+            Age = 24;
         }
     }
 }

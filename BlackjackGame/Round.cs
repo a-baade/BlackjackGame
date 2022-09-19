@@ -1,9 +1,10 @@
-﻿namespace Blackjack;
+﻿
+namespace BlackjackGame;
 
-public class Round
+public static class Round
 {
-    internal static int playerTotalCardScore = 0;
-    internal static int dealerTotalCardScore = 0;
+    internal static int PlayerTotalCardScore;
+    internal static int DealerTotalCardScore;
     
     internal static void HandleNewRound()
         {
@@ -26,7 +27,7 @@ public class Round
                 canHit = CanHitAgain();
             }
 
-            while(dealerTotalCardScore < 17)
+            while(DealerTotalCardScore < 17)
             {
                 Deck.HitCard("Dealer");
             }
@@ -39,7 +40,7 @@ public class Round
         private static bool CanHitAgain()
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            if(playerTotalCardScore < 21)
+            if(PlayerTotalCardScore < 21)
             {
                 Console.WriteLine("Do you want to hit again?\n1. Yes 2. No");
                 var hitAgain = Console.ReadLine();
@@ -65,25 +66,25 @@ public class Round
 
         private static void CalculateRoundResult()
         {
-            if (playerTotalCardScore > 21 || playerTotalCardScore <= dealerTotalCardScore)
+            if (PlayerTotalCardScore > 21 || PlayerTotalCardScore <= DealerTotalCardScore)
             {
-                Player.currentWinningStreak = 0;
-                Player.playerMoney -= Bet.bettingAmount;
+                Player.CurrentWinningStreak = 0;
+                Player.PlayerMoney -= Bet.BettingAmount;
                 PrintRoundLost();
             }
             else
             {
-                double wonBonusAmount = Bet.bettingAmount * 0.05 * Player.currentWinningStreak;
-                double wonAmount = Bet.bettingAmount + wonBonusAmount;
+                double wonBonusAmount = Bet.BettingAmount * 0.05 * Player.CurrentWinningStreak;
+                double wonAmount = Bet.BettingAmount + wonBonusAmount;
 
-                Player.currentWinningStreak++;
+                Player.CurrentWinningStreak++;
 
-                if (Player.bestWinningStreak < Player.currentWinningStreak)
+                if (Player.BestWinningStreak < Player.CurrentWinningStreak)
                 {
-                    Player.bestWinningStreak = Player.currentWinningStreak;
+                    Player.BestWinningStreak = Player.CurrentWinningStreak;
                 }
 
-                Player.playerMoney += wonAmount;
+                Player.PlayerMoney += wonAmount;
                 PrintRoundWon(wonAmount);
             }
         }
@@ -91,7 +92,7 @@ public class Round
         private static void PrintRoundWon(double wonAmount)
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine($"Dealer busted!!\nYou win {wonAmount}$!!\nYour current winnings: {Player.playerMoney}$\n\nPress any key to continue..");
+            Console.WriteLine($"Dealer busted!!\nYou win {wonAmount}$!!\nYour current winnings: {Player.PlayerMoney}$\n\nPress any key to continue..");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
         }
@@ -99,7 +100,7 @@ public class Round
         private static void PrintRoundLost()
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine($"House wins! {Bet.bettingAmount}$..\nYour current winnings: {Player.playerMoney}$\n\nPress any key to continue..");
+            Console.WriteLine($"House wins! {Bet.BettingAmount}$..\nYour current winnings: {Player.PlayerMoney}$\n\nPress any key to continue..");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
         }
@@ -109,12 +110,12 @@ public class Round
             if (pullerRole == "Player")
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine($"{pullerRole} total card score: {playerTotalCardScore}");
+                Console.WriteLine($"{pullerRole} total card score: {PlayerTotalCardScore}");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"{pullerRole} total card score: {dealerTotalCardScore}");
+                Console.WriteLine($"{pullerRole} total card score: {DealerTotalCardScore}");
             }
             
             Console.ForegroundColor = ConsoleColor.White;
@@ -122,11 +123,11 @@ public class Round
 
         private static void PrepareNewRound()
         {
-            Deck.playerCardScores.Clear();
-            Deck.dealerCardScores.Clear();
-            playerTotalCardScore = 0;
-            dealerTotalCardScore = 0;
-            Bet.bettingAmount = 0;
+            Deck.PlayerCardScores.Clear();
+            Deck.DealerCardScores.Clear();
+            PlayerTotalCardScore = 0;
+            DealerTotalCardScore = 0;
+            Bet.BettingAmount = 0;
         }
 
         private static void PrintNewGameMessage()

@@ -1,20 +1,20 @@
 ﻿
-namespace Blackjack
+namespace BlackjackGame
 {
-    class Program
+    internal static class Program
     {
-        internal static bool isGameRunning = true;
-        
-        static void Main(string[] args)
+        internal static bool IsGameRunning = true;
+
+        private static void Main(string[] args)
         {
             Player.SetInitialPlayerInformation(true);
             Console.Title = "BlackJack";
 
-            while(isGameRunning)
+            while(IsGameRunning)
             {
-                UI.PrintLogo();
-                UI.PrintPlayerMenuInfo();
-                UI.PrintMenu();
+                Ui.PrintLogo();
+                Ui.PrintPlayerMenuInfo();
+                Ui.PrintMenu();
                 Game.HandleGame();
 
                 Console.Clear();

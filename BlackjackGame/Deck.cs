@@ -1,20 +1,21 @@
-﻿namespace Blackjack;
+﻿
+namespace BlackjackGame;
 
-public class Deck
+public static class Deck
 {
-    static string[] cardSuits = { "♥", "♦", "♣", "♠" };
-    static string[] cardFaces = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
+    private static readonly string[] CardSuits = { "♥", "♦", "♣", "♠" };
+    private static readonly string[] CardFaces = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
 
-    internal static List<int> playerCardScores = new List<int>();
-    internal static List<int> dealerCardScores = new List<int>();
+    internal static readonly List<int> PlayerCardScores = new List<int>();
+    internal static readonly List<int> DealerCardScores = new List<int>();
 
     internal static void HitCard(string pullerRole = "Player")
         {
             var randomGenerator = new Random();
-            var cardSuit = cardSuits[randomGenerator.Next(cardSuits.Length)];
+            var cardSuit = CardSuits[randomGenerator.Next(CardSuits.Length)];
 
-            var playingCardIndex = randomGenerator.Next(cardSuits.Length);
-            var cardFace = cardFaces[playingCardIndex];
+            var playingCardIndex = randomGenerator.Next(CardSuits.Length);
+            var cardFace = CardFaces[playingCardIndex];
             int cardScore;
             int totalCardScore;
             List<int> cardScores;
@@ -34,19 +35,19 @@ public class Deck
 
             if(pullerRole == "Player")
             {
-                playerCardScores.Add(cardScore);
+                PlayerCardScores.Add(cardScore);
                 Console.ForegroundColor = ConsoleColor.Green;
                 CalculateCardHit();
-                totalCardScore = Round.playerTotalCardScore;
-                cardScores = playerCardScores;
+                totalCardScore = Round.PlayerTotalCardScore;
+                cardScores = PlayerCardScores;
             }
             else
             {
-                dealerCardScores.Add(cardScore);
+                DealerCardScores.Add(cardScore);
                 Console.ForegroundColor = ConsoleColor.Red;
                 CalculateCardHit("Dealer");
-                totalCardScore = Round.dealerTotalCardScore;
-                cardScores = dealerCardScores;
+                totalCardScore = Round.DealerTotalCardScore;
+                cardScores = DealerCardScores;
             }
 
             Console.WriteLine($"\n{pullerRole} is drawing a card..");
@@ -64,11 +65,11 @@ public class Deck
         {
             if (pullerRole == "Player")
             {
-                Round.playerTotalCardScore = CalculateCurrentTotalCardScore(playerCardScores);
+                Round.PlayerTotalCardScore = CalculateCurrentTotalCardScore(PlayerCardScores);
             }
             else
             {
-                Round.dealerTotalCardScore = CalculateCurrentTotalCardScore(dealerCardScores);
+                Round.DealerTotalCardScore = CalculateCurrentTotalCardScore(DealerCardScores);
             }
         }
         private static int CalculateCurrentTotalCardScore(List<int> cardScores)

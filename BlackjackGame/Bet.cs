@@ -1,12 +1,13 @@
-﻿namespace Blackjack;
+﻿
+namespace BlackjackGame;
 
-public class Bet
+public static class Bet
 {
-    internal static int bettingAmount = 0;
+    internal static int BettingAmount;
 
     internal static bool IsBetValid()
     {
-        return bettingAmount <= Player.playerMoney;
+        return BettingAmount <= Player.PlayerMoney;
     }
 
     internal static void SetBetAmount()
@@ -14,8 +15,8 @@ public class Bet
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("\nHow much you are willing to bet?");
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"(You currently have: {Player.playerMoney}$)");
-        bettingAmount = int.Parse(Console.ReadLine());
+        Console.WriteLine($"(You currently have: {Player.PlayerMoney}$)");
+        BettingAmount = int.Parse(Console.ReadLine()!);
         Console.ForegroundColor = ConsoleColor.White;
     }
 }
